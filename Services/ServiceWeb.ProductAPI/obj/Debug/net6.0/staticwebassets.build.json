@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "i+nE7fDQggn/7vRu1oDg5FSauNeJvSwRnmnFRJdvDR0=",
+  "Source": "ServiceWeb.ProductAPI",
+  "BasePath": "_content/ServiceWeb.ProductAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
