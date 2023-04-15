@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0dWbLzkMzgb2wELZn/SQAOYzgke1az5vOKnCTJq7cldeoU2/OhSX5f0ZHyO50F9XvqbULVwEnvTydWFkEypIWw==",
+  "dgSpecHash": "UZkCY38Vi7Qnm+jfWw+4RxmwMk3zRnNccR4qQT1pdl8bjeIDBzZ/MC76vwARzyQVCh62gQNVvvDYLZ3qIr71Ug==",
   "success": true,
   "projectFilePath": "C:\\Users\\cleid\\OneDrive\\Área de Trabalho\\Services\\Services\\ServiceWeb.ProductAPI\\ServiceWeb.ProductAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\cleid\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512",
     "C:\\Users\\cleid\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\cleid\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\cleid\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",

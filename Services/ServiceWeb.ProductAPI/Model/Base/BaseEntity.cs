@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ServiceWeb.ProductAPI.Model.Base
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         [Key]
         [Column("id")]
@@ -12,7 +12,7 @@ namespace ServiceWeb.ProductAPI.Model.Base
         internal List<string> _errors;
 
         //--Ao acessar os erros o programador só vai poder ler e não manipular os dados ex: _erros.Exemplo--
-        //public IReadOnlyCollection<string> Erros => _errors;
-        //public abstract bool Validate();
+        public IReadOnlyCollection<string> Erros => _errors;
+        public abstract bool Validate();
     }
 }
