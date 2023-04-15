@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ServiceWeb.ProductAPI.Model.Entities;
 
 namespace ServiceWeb.ProductAPI.Controllers
 {
@@ -7,7 +8,7 @@ namespace ServiceWeb.ProductAPI.Controllers
     public class ProductController : Controller
     {
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IEnumerable<Product>> FindAll()
         {
             return View();
         }
