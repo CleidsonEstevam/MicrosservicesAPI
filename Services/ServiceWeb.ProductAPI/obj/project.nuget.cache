@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "tyBzP/aZM9N+eyiAe5ezJ+z0aYjD8EWFLEdvPIbPbpkFt6CLQW1XUfS1cyt3k4W63YVpDr+YjeM3ELOdxFDPtw==",
+  "dgSpecHash": "V+Nl/EKZnU6TMtzHCkqu6W7YZjdv9gjmCiGNIppM0td7NPqYPvheW6+EdhN4L6ha4esjBFLr++iicR/bEziEYQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\cleid\\OneDrive\\Área de Trabalho\\Services\\Services\\ServiceWeb.ProductAPI\\ServiceWeb.ProductAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\cleid\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\cleid\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\cleid\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512",
+    "C:\\Users\\cleid\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\cleid\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",
     "C:\\Users\\cleid\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.5\\microsoft.entityframeworkcore.abstractions.7.0.5.nupkg.sha512",
     "C:\\Users\\cleid\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.5\\microsoft.entityframeworkcore.analyzers.7.0.5.nupkg.sha512",

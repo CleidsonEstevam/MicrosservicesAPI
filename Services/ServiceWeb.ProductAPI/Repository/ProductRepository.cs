@@ -1,11 +1,31 @@
-﻿using ServiceWeb.ProductAPI.DTO;
+﻿using AutoMapper;
+using ServiceWeb.ProductAPI.DTO;
+using ServiceWeb.ProductAPI.Model.Context;
+using ServiceWeb.ProductAPI.Model.Entities;
 using ServiceWeb.ProductAPI.Repository.Interface;
 
 namespace ServiceWeb.ProductAPI.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        public Task<ProductDTO> Create(ProductDTO vo)
+        private readonly MySQLContext _context;
+        private IMapper _mapper;
+
+        public ProductRepository(MySQLContext context, IMapper mapper) 
+        {
+            context = _context;
+            mapper = _mapper;
+        }
+
+        public async Task<ProductDTO> Create(ProductDTO DTO)
+        {
+            Product product = _mapper.Map<Product>(DTO);
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return _mapper.Map<ProductDTO>(product);
+        }
+
+        public Task<ProductDTO> Update(ProductDTO vo)
         {
             throw new NotImplementedException();
         }
@@ -25,9 +45,5 @@ namespace ServiceWeb.ProductAPI.Repository
             throw new NotImplementedException();
         }
 
-        public Task<ProductDTO> Update(ProductDTO vo)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

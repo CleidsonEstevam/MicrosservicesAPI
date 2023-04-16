@@ -1,4 +1,8 @@
+using AutoMapper;
 using Microsoft.OpenApi.Models;
+using ServiceWeb.ProductAPI.Config;
+using ServiceWeb.ProductAPI.Repository;
+using ServiceWeb.ProductAPI.Repository.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,10 +11,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
+#region ConfigureMapper
+IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+builder.Services.AddSingleton(mapper);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+#endregion
+
+#region Injections
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+#endregion
 
 #region "Swagger"
+builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerGen(c =>
      {
          c.SwaggerDoc("v1", new OpenApiInfo { Title = "GeekShopping.ProductAPI", Version = "v1" });

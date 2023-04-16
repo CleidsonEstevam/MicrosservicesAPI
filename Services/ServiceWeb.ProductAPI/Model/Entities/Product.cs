@@ -11,7 +11,7 @@ namespace ServiceWeb.ProductAPI.Model.Entities
     public class Product : BaseEntity
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column("Code")]
+        [Column("code")]
         public string Code { get; private set; }
 
         [Column("name")]
