@@ -5,7 +5,7 @@ namespace ServiceWeb.ProductAPI.Model.Base
 {
     public abstract class BaseEntity
     {
-        [Key]
+       
         [Column("id")]
         public long Id { get; set; }
 

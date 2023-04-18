@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using ServiceWeb.ProductAPI.DTO;
 using ServiceWeb.ProductAPI.Model.Context;
 using ServiceWeb.ProductAPI.Model.Entities;
@@ -13,8 +14,8 @@ namespace ServiceWeb.ProductAPI.Repository
 
         public ProductRepository(MySQLContext context, IMapper mapper) 
         {
-            context = _context;
-            mapper = _mapper;
+            _context = context;
+            _mapper = mapper;
         }
 
         public async Task<ProductDTO> Create(ProductDTO DTO)
@@ -25,22 +26,23 @@ namespace ServiceWeb.ProductAPI.Repository
             return _mapper.Map<ProductDTO>(product);
         }
 
-        public Task<ProductDTO> Update(ProductDTO vo)
+        public async Task<ProductDTO> Update(ProductDTO vo)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> Delete(long id)
+        public async Task<bool> Delete(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<ProductDTO>> FindAll()
+        public async Task<IEnumerable<ProductDTO>> FindAll()
         {
-            throw new NotImplementedException();
+            List<Product> products = await _context.Products.ToListAsync();
+            return _mapper.Map<List<ProductDTO>>(products);
         }
 
-        public Task<ProductDTO> FindById(long id)
+        public async Task<ProductDTO> FindById(long id)
         {
             throw new NotImplementedException();
         }

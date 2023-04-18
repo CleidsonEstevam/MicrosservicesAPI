@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ServiceWeb.ProductAPI.DTO;
 using ServiceWeb.ProductAPI.Model.Entities;
+using ServiceWeb.ProductAPI.Repository.Interface;
 
 namespace ServiceWeb.ProductAPI.Controllers
 {
@@ -7,10 +9,19 @@ namespace ServiceWeb.ProductAPI.Controllers
     [ApiController]
     public class ProductController : Controller
     {
-        [HttpGet]
-        public async Task<IEnumerable<Product>> FindAll()
+
+        private IProductRepository _repository;
+
+        public ProductController(IProductRepository repository)
         {
-            return View();
+            _repository = repository;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ProductDTO>>> FindAll()
+        {
+            var products = await _repository.FindAll();
+            return Ok(products);
         }
     }
 }

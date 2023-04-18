@@ -39,7 +39,7 @@ namespace ServiceWeb.ProductAPI.Model.Entities
         [StringLength(10)]
         public string PackagingType { get; private set; }
 
-        [Column("packging_type")]
+        [Column("packging_quantity")]
         [Required]
         public int PackagingQuantity { get; private set; }
 

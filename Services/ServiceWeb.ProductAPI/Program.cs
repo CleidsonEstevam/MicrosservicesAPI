@@ -1,6 +1,8 @@
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using ServiceWeb.ProductAPI.Config;
+using ServiceWeb.ProductAPI.Model.Context;
 using ServiceWeb.ProductAPI.Repository;
 using ServiceWeb.ProductAPI.Repository.Interface;
 
@@ -36,6 +38,17 @@ builder.Services.AddSwaggerGen(c =>
              Scheme = "Bearer"
          });
      });
+
+
+//var connection = Configuration["MySQlConnection:MySQlConnectionString"];
+
+builder.Services.AddDbContext<MySQLContext>(options => options.
+    UseMySql("Server=localhost;DataBase=service_product_api;Uid=root;Pwd=admin",
+            new MySqlServerVersion(
+                new Version(8, 0, 5))));
+
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 
