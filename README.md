@@ -10,7 +10,7 @@
 <h3 id="apresentacao">😜 Apresentação:</h3>
 <p>
    Este projeto é um exemplo prático de como os conceitos e técnicas aprendidos em cursos de programação podem ser aplicados em projetos reais. <br/>
-   O objetivo é reunir as boas praticas e tecnologias que estudei até hoje com os conceitos que preciso revisar, fazendo a junção de tudo paraabstrair o conhecimento      adiquirido em um sistema de Microsserviços. <br/>
+   O objetivo é reunir as boas praticas e tecnologias que estudei até hoje com os conceitos que preciso revisar, fazendo a junção de tudo para abstrair o conhecimento      adiquirido em um sistema de Microsserviços. <br/>
    Tal projeto vai permitir que me desafie e nivele meu conhecimento, podendo ser usado futuramente como um guia para outros programadores que desejam consolidar seus    conhecimentos e desenvolver aplicações mais complexas e escaláveis.
 <p/>
 <br/>
