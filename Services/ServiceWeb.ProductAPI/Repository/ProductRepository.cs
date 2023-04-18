@@ -44,7 +44,9 @@ namespace ServiceWeb.ProductAPI.Repository
 
         public async Task<ProductDTO> FindById(long id)
         {
-            throw new NotImplementedException();
+            Product product = await _context.Products.Where(p => p.Id == id)
+                .FirstOrDefaultAsync();
+            return _mapper.Map<ProductDTO>(product);
         }
 
     }
