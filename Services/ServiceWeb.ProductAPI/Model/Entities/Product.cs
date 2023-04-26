@@ -46,7 +46,7 @@ namespace ServiceWeb.ProductAPI.Model.Entities
         [Column("bar_code")]
         [Required]
         [StringLength(16)]
-        public string BarCode { get; private set; }
+        public string BarCode { get; set; }
 
         [Column("origin")]
         [Required]

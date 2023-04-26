@@ -21,7 +21,7 @@ namespace ServiceWeb.ProductAPI.Controllers
         {
             if (dto == null) return BadRequest();
             var product = await _repository.Create(dto);
-            return Ok();
+            return Ok(product);
         }
 
         [HttpPut]
@@ -31,6 +31,13 @@ namespace ServiceWeb.ProductAPI.Controllers
             var product = await _repository.Update(dto);
             return Ok(product);
         }
+        [HttpDelete]
+        public async Task<ActionResult> Delete(long id)
+        {
+            var status = await _repository.Delete(id);
+            if(!status) return BadRequest();
+            return Ok(status);
+        }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductDTO>>> FindAll()
         {
@@ -39,7 +46,7 @@ namespace ServiceWeb.ProductAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProductDTO>> FindById(string id)
+        public async Task<ActionResult<ProductDTO>> FindById(long id)
         {
             var product = await _repository.FindById(id);
             if (product == null) return NotFound();

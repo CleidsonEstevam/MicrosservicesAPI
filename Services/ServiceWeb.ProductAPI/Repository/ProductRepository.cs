@@ -26,14 +26,36 @@ namespace ServiceWeb.ProductAPI.Repository
             return _mapper.Map<ProductDTO>(product);
         }
 
-        public async Task<ProductDTO> Update(ProductDTO vo)
+        public async Task<ProductDTO> Update(ProductDTO DTO)
         {
-            throw new NotImplementedException();
+            Product productTela = _mapper.Map<Product>(DTO);
+
+            Product productDb = await _context.Products.Where(x => x.Code == DTO.Code).FirstOrDefaultAsync();
+
+            productDb.BarCode = productTela.BarCode;
+
+            _context.Products.Update(productDb);
+
+            await _context.SaveChangesAsync();
+
+            return DTO;
         }
 
         public async Task<bool> Delete(long id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Product product = await _context.Products.Where(x => x.Id == id)
+                  .SingleOrDefaultAsync();
+                if (product == null) return false;
+                _context.Products.Remove(product);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public async Task<IEnumerable<ProductDTO>> FindAll()
@@ -48,6 +70,5 @@ namespace ServiceWeb.ProductAPI.Repository
                 .FirstOrDefaultAsync();
             return _mapper.Map<ProductDTO>(product);
         }
-
     }
 }
