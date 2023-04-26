@@ -28,17 +28,23 @@ namespace ServiceWeb.ProductAPI.Repository
 
         public async Task<ProductDTO> Update(ProductDTO DTO)
         {
-            Product productTela = _mapper.Map<Product>(DTO);
+            Product product = _mapper.Map<Product>(DTO);
 
             Product productDb = await _context.Products.Where(x => x.Code == DTO.Code).FirstOrDefaultAsync();
+            if (productDb == null)
+                throw new Exception("Produto não encontrado!");
+            
 
-            productDb.BarCode = productTela.BarCode;
+            productDb.ChangeCategory(product.Category);
+            productDb.ChangePackagingType(product.PackagingType);
+            productDb.ChangePackagingQuantity(product.PackagingQuantity);
+            productDb.ChangePrice(product.Price);
 
             _context.Products.Update(productDb);
 
             await _context.SaveChangesAsync();
 
-            return DTO;
+            return _mapper.Map<ProductDTO>(productDb);
         }
 
         public async Task<bool> Delete(long id)
@@ -53,7 +59,6 @@ namespace ServiceWeb.ProductAPI.Repository
             }
             catch (Exception)
             {
-
                 return false;
             }
         }

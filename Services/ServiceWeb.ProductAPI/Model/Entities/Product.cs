@@ -46,7 +46,7 @@ namespace ServiceWeb.ProductAPI.Model.Entities
         [Column("bar_code")]
         [Required]
         [StringLength(16)]
-        public string BarCode { get; set; }
+        public string BarCode { get; private set; }
 
         [Column("origin")]
         [Required]
@@ -140,7 +140,7 @@ namespace ServiceWeb.ProductAPI.Model.Entities
                 {
                     _errors.Add(error.ErrorMessage);
 
-                    throw new DomainException("Alguns campos inválidos", _errors);
+                    throw new DomainException("Alguns campos inválidos: ", _errors);
                 }
             }
             //Se a entidade tiver ok ele retorna true, se não retorna a Exception
