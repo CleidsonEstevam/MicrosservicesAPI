@@ -1,16 +1,18 @@
-﻿namespace ServiceWeb.ProductAPI.DTO
+﻿
+
+namespace ServiceWeb.ProductAPI.DTO
 {
     public class ProductDTO
     {
-        public string Code { get; private set; }
-        public string Name { get; private set; }
-        public string Description { get; private set; }
-        public string Supplier { get; private set; }
-        public string Category { get; private set; }
-        public string PackagingType { get; private set; }
-        public int PackagingQuantity { get; private set; }
-        public string BarCode { get; private set; }
-        public string Origin { get; private set; }
-        public decimal Price { get; private set; }
+        public string Code { get;  set; }
+        public string Name { get;  set; }
+        public string Description { get;  set; }
+        public string Supplier { get;  set; }
+        public string Category { get;  set; }
+        public string PackagingType { get;  set; }
+        public int PackagingQuantity { get;  set; }
+        public string BarCode { get;  set; }
+        public string Origin { get;  set; }
+        public decimal Price { get;  set; }
     }
 }

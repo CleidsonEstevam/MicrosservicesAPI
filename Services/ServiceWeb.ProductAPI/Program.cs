@@ -28,7 +28,7 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerGen(c =>
      {
-         c.SwaggerDoc("v1", new OpenApiInfo { Title = "GeekShopping.ProductAPI", Version = "v1" });
+         c.SwaggerDoc("v1", new OpenApiInfo { Title = "MicrosservicesAPI", Version = "v1" });
          c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
          {
              Description = @"Enter 'Bearer' [space] and your token!",
