@@ -8,7 +8,7 @@ using ServiceWeb.ProductAPI.ViewModels;
 
 namespace ServiceWeb.ProductAPI.Controllers
 {
-    [Route("api/v1/[controller]")]
+   
     [ApiController]
     public class ProductController : Controller
     {
@@ -21,6 +21,7 @@ namespace ServiceWeb.ProductAPI.Controllers
         }
 
         [HttpPost]
+        [Route("api/v1/product/create")]
         public async Task<ActionResult<ProductDTO>> Create([FromBody] ProductDTO dto)
         {
             try
@@ -47,6 +48,7 @@ namespace ServiceWeb.ProductAPI.Controllers
         }
 
         [HttpPut]
+        [Route("api/v1/product/update")]
         public async Task<ActionResult<ProductDTO>> Update([FromBody] ProductDTO dto)
         {
             try
@@ -80,6 +82,8 @@ namespace ServiceWeb.ProductAPI.Controllers
             }
         }
         [HttpDelete]
+        [Route("api/v1/product/delete/{id}")]
+
         public async Task<ActionResult> Delete(long id)
         {
             try
@@ -111,6 +115,8 @@ namespace ServiceWeb.ProductAPI.Controllers
 
         }
         [HttpGet]
+        [Route("api/v1/product/find-all")]
+
         public async Task<ActionResult<IEnumerable<ProductDTO>>> FindAll()
         {
             try
@@ -134,7 +140,9 @@ namespace ServiceWeb.ProductAPI.Controllers
 
         }
 
-        [HttpGet("{id}")]
+        [HttpGet]
+        [Route("api/v1/product/find-by-id/{id}")]
+
         public async Task<ActionResult<ProductDTO>> FindById(long id)
         {
             try
@@ -147,8 +155,6 @@ namespace ServiceWeb.ProductAPI.Controllers
                         Success = true,
                         Data = product
                     });
-
-
 
                 return Ok(new ResultViewModel
                 {
