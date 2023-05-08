@@ -40,10 +40,10 @@ builder.Services.AddSwaggerGen(c =>
      });
 
 
-//var connection = Configuration["MySQlConnection:MySQlConnectionString"];
+var connection = builder.Configuration["MySQlConnection:MySQlConnectionString"];
 
 builder.Services.AddDbContext<MySQLContext>(options => options.
-    UseMySql("Server=localhost;DataBase=service_product_api;Uid=root;Pwd=admin",
+    UseMySql(connection,
             new MySqlServerVersion(
                 new Version(8, 0, 5))));
 
