@@ -12,9 +12,7 @@ namespace ServiceWeb.ProductAPI.Controllers
     [ApiController]
     public class ProductController : Controller
     {
-
         private IProductRepository _repository;
-
         public ProductController(IProductRepository repository)
         {
             _repository = repository;
@@ -81,6 +79,7 @@ namespace ServiceWeb.ProductAPI.Controllers
                 return StatusCode(500, Responses.AplicationErrorMessage());
             }
         }
+
         [HttpDelete]
         [Route("api/v1/product/delete/{id}")]
 

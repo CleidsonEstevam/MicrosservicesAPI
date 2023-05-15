@@ -31,15 +31,14 @@ namespace ServiceWeb.ProductAPI.Repository
             Product product = _mapper.Map<Product>(DTO);
 
             Product productDb = await _context.Products.Where(x => x.Code == DTO.Code).FirstOrDefaultAsync();
-            if (productDb == null)
-                throw new Exception("Produto não encontrado!");
-            
 
-            productDb.ChangeCategory(product.Category);
-            productDb.ChangePackagingType(product.PackagingType);
-            productDb.ChangePackagingQuantity(product.PackagingQuantity);
-            productDb.ChangePrice(product.Price);
-
+            if (productDb != null) 
+            {
+                productDb.ChangeCategory(product.Category);
+                productDb.ChangePackagingType(product.PackagingType);
+                productDb.ChangePackagingQuantity(product.PackagingQuantity);
+                productDb.ChangePrice(product.Price);
+            }
             _context.Products.Update(productDb);
 
             await _context.SaveChangesAsync();
