@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Service
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceWeb.ProductAPI", "ServiceWeb.ProductAPI\ServiceWeb.ProductAPI.csproj", "{08B53948-48C0-40B5-A85E-159F994C7602}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServuceWeb.CartAPI", "ServuceWeb.CartAPI\ServuceWeb.CartAPI.csproj", "{A289455E-15C4-42D1-BCB3-F4C41C557FEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceWeb.CartAPI", "ServuceWeb.CartAPI\ServiceWeb.CartAPI.csproj", "{A289455E-15C4-42D1-BCB3-F4C41C557FEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

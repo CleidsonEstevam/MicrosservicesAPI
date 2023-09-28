@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "33SgZGbscYpsnFhA2CHKEUlxI9u/oYgpgiUf3Zw8me174bzlqCasiZRb+zK5194byoHclsUVwBlc6UcG03lwig==",
+  "dgSpecHash": "D3sueJcaDfShTFctTEFQV4L+qiNL3l0jbO5QJNsXYHgbKWLzN+rdGBRiSkpIZsZxHaZe3h4qTRsmsjQOkXDFjA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cleidson.silva\\Desktop\\MicrosservicesAPI\\Services\\ServuceWeb.CartAPI\\ServuceWeb.CartAPI.csproj",
+  "projectFilePath": "C:\\Users\\cleidson.silva\\Desktop\\MicrosservicesAPI\\Services\\ServuceWeb.CartAPI\\ServiceWeb.CartAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cleidson.silva\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\cleidson.silva\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

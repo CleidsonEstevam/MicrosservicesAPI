@@ -1,4 +1,4 @@
-﻿namespace ServuceWeb.CartAPI.Model.Entities
+﻿namespace ServiceWeb.CartAPI.Model.Entities
 {
     public class Cart
     {

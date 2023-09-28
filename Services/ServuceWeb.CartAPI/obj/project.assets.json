@@ -6113,9 +6113,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cleidson.silva\\Desktop\\MicrosservicesAPI\\Services\\ServuceWeb.CartAPI\\ServuceWeb.CartAPI.csproj",
-      "projectName": "ServuceWeb.CartAPI",
-      "projectPath": "C:\\Users\\cleidson.silva\\Desktop\\MicrosservicesAPI\\Services\\ServuceWeb.CartAPI\\ServuceWeb.CartAPI.csproj",
+      "projectUniqueName": "C:\\Users\\cleidson.silva\\Desktop\\MicrosservicesAPI\\Services\\ServuceWeb.CartAPI\\ServiceWeb.CartAPI.csproj",
+      "projectName": "ServiceWeb.CartAPI",
+      "projectPath": "C:\\Users\\cleidson.silva\\Desktop\\MicrosservicesAPI\\Services\\ServuceWeb.CartAPI\\ServiceWeb.CartAPI.csproj",
       "packagesPath": "C:\\Users\\cleidson.silva\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\cleidson.silva\\Desktop\\MicrosservicesAPI\\Services\\ServuceWeb.CartAPI\\obj\\",
       "projectStyle": "PackageReference",

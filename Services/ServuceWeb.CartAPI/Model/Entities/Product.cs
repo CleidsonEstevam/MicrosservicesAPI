@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace ServuceWeb.CartAPI.Model.Entities
+namespace ServiceWeb.CartAPI.Model.Entities
 {
     public class Product
     {
-        public string? Code { get; private set; }
+        public string? ProductCode { get; private set; }
 
         public string? Name { get; private set; }
 
