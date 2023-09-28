@@ -12,15 +12,16 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen();
 
+var connection = builder.Configuration["MySQlConnection:MySQlConnectionString"];
+
+builder.Services.AddDbContext<MySqlCartContext>(options => options.
+    UseMySql("Server=localhost;DataBase=service_cart_api;Uid=root;Pwd=admin",
+            new MySqlServerVersion(
+                new Version(8, 0, 5))));
+
 var app = builder.Build();
 
 
-var connection = builder.Configuration["MySQlConnection:MySQlConnectionString"];
-
-builder.Services.AddDbContext<MySQLContext>(options => options.
-    UseMySql(connection,
-            new MySqlServerVersion(
-                new Version(8, 0, 5))));
 
 
 // Configure the HTTP request pipeline.

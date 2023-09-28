@@ -4,10 +4,10 @@ using ServiceWeb.CartAPI.Model.Entities;
 
 namespace ServuceWeb.CartAPI.Model.Context
 {
-    public class MySQLContext : DbContext
+    public class MySqlCartContext : DbContext
     {
-        public MySQLContext() { }
-        public MySQLContext(DbContextOptions<MySQLContext> options) : base(options) { }
+        public MySqlCartContext() { }
+        public MySqlCartContext(DbContextOptions<MySqlCartContext> options) : base(options) { }
         public DbSet<Product> Products { get; set; }
         public DbSet<CartHeader> CartHeaders { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
@@ -19,7 +19,7 @@ namespace ServuceWeb.CartAPI.Model.Context
             modelBuilder.ApplyConfiguration(new CartItemMap());
             modelBuilder.ApplyConfiguration(new ProductMap());
 
-            // Outras configurações, se houver
+          
 
             base.OnModelCreating(modelBuilder);
         }

@@ -24,5 +24,11 @@ namespace ServiceWeb.CartAPI.Model.Entities
         public string? Origin { get; private set; }
 
         public decimal Price { get; private set; }
+
+
+        public Product()
+        {
+                
+        }
     }
 }

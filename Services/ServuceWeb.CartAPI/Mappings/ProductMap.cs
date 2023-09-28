@@ -52,7 +52,7 @@ namespace ServiceWeb.CartAPI.Mappings
 
             builder.Property(p => p.Origin)
                    .HasMaxLength(1)
-                   .HasColumnName("bar_code")
+                   .HasColumnName("origin")
                    .HasColumnType("CHAR(1)");
 
             builder.Property(p => p.Price)
