@@ -1,4 +1,8 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using ServiceWeb.CartAPI.Config;
+using ServiceWeb.CartAPI.Repository;
+using ServiceWeb.CartAPI.Repository.Interface;
 using ServuceWeb.CartAPI.Model.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +13,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
+#region ConfigureMapper
+IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+builder.Services.AddSingleton(mapper);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+#endregion
 
 builder.Services.AddSwaggerGen();
 
@@ -19,16 +28,18 @@ builder.Services.AddDbContext<MySqlCartContext>(options => options.
             new MySqlServerVersion(
                 new Version(8, 0, 5))));
 
+builder.Services.AddScoped<ICartRepository, CartRepository>();
+
 var app = builder.Build();
 
 
-
-
+// Configure the HTTP request pipeline.
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ServiceWeb.Cart  API v1"));
 }
 
 app.UseHttpsRedirection();

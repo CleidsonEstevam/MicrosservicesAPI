@@ -6107,19 +6107,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cleid\\.nuget\\packages\\": {}
+    "C:\\Users\\cleidson.silva\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cleid\\OneDrive\\Área de Trabalho\\MicrosservicesAPI\\Services\\ServiceWeb.ProductAPI\\ServiceWeb.ProductAPI.csproj",
+      "projectUniqueName": "C:\\Users\\cleidson.silva\\Desktop\\MicrosservicesAPI\\Services\\ServiceWeb.ProductAPI\\ServiceWeb.ProductAPI.csproj",
       "projectName": "ServiceWeb.ProductAPI",
-      "projectPath": "C:\\Users\\cleid\\OneDrive\\Área de Trabalho\\MicrosservicesAPI\\Services\\ServiceWeb.ProductAPI\\ServiceWeb.ProductAPI.csproj",
-      "packagesPath": "C:\\Users\\cleid\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cleid\\OneDrive\\Área de Trabalho\\MicrosservicesAPI\\Services\\ServiceWeb.ProductAPI\\obj\\",
+      "projectPath": "C:\\Users\\cleidson.silva\\Desktop\\MicrosservicesAPI\\Services\\ServiceWeb.ProductAPI\\ServiceWeb.ProductAPI.csproj",
+      "packagesPath": "C:\\Users\\cleidson.silva\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cleidson.silva\\Desktop\\MicrosservicesAPI\\Services\\ServiceWeb.ProductAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\cleid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cleidson.silva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6127,7 +6132,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6200,7 +6206,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

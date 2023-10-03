@@ -7,11 +7,6 @@
         public int CartHeaderId { get; set; }
         public CartHeader CartHeader { get; set; }
         public string ProductCode { get; set; }
-        public Product Product { get; set; } = new Product();
-
-
         public CartItem(){}
-
-
     }
 }

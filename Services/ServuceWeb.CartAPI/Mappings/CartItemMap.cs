@@ -17,15 +17,15 @@ namespace ServiceWeb.CartAPI.Mappings
                    .HasColumnName("quantity")
                    .HasColumnType("INT");
 
+            builder.Property(ci => ci.ProductCode) // Mapeie o ProductCode
+                   .IsRequired()
+                   .HasMaxLength(255) // Defina o tamanho máximo adequado
+                   .HasColumnName("product_code");
+
             // Configuração de relacionamento com CartHeader
             builder.HasOne(ci => ci.CartHeader)
                    .WithMany(ch => ch.CartItems)
                    .HasForeignKey(ci => ci.CartHeaderId);
-
-            // Configuração de relacionamento com Product
-            builder.HasOne(ci => ci.Product)
-                   .WithMany()
-                   .HasForeignKey(ci => ci.ProductCode);
 
         }
     }
