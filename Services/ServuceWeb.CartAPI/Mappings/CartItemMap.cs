@@ -22,10 +22,10 @@ namespace ServiceWeb.CartAPI.Mappings
                    .HasMaxLength(255) // Defina o tamanho máximo adequado
                    .HasColumnName("product_code");
 
-            // Configuração de relacionamento com CartHeader
-            builder.HasOne(ci => ci.CartHeader)
-                   .WithMany(ch => ch.CartItems)
-                   .HasForeignKey(ci => ci.CartHeaderId);
+            //// Configuração de relacionamento com CartHeader
+            //builder.HasOne(ci => ci.CartHeader)
+            //       .WithMany(ch => ch.CartItems)
+            //       .HasForeignKey(ci => ci.CartHeaderId);
 
         }
     }

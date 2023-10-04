@@ -69,9 +69,9 @@ namespace ServiceWeb.ProductAPI.Repository
             return _mapper.Map<List<ProductDTO>>(products);
         }
 
-        public async Task<ProductDTO> FindById(long id)
+        public async Task<ProductDTO> FindById(string code)
         {
-            Product product = await _context.Products.Where(p => p.Id == id)
+            Product product = await _context.Products.Where(p => p.Code == code)
                 .FirstOrDefaultAsync();
             return _mapper.Map<ProductDTO>(product);
         }

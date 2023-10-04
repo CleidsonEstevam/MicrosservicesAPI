@@ -11,10 +11,10 @@ namespace ServiceWeb.CartAPI.Mappings
             builder.HasKey(ch => ch.Id);
             builder.Property(ch => ch.UserId).IsRequired();
 
-            // Configuração de relacionamento com CartItem
-            builder.HasMany(ch => ch.CartItems)
-                .WithOne(ci => ci.CartHeader)
-                .HasForeignKey(ci => ci.CartHeaderId);
+            //// Configuração de relacionamento com CartItem
+            //builder.HasMany(ch => ch.CartItems)
+            //    .WithOne(ci => ci.CartHeader)
+            //    .HasForeignKey(ci => ci.CartHeaderId);
 
             builder.Property(x => x.CouponCode)
                 .IsRequired()

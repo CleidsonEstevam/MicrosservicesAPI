@@ -140,13 +140,13 @@ namespace ServiceWeb.ProductAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/v1/product/find-by-id/{id}")]
+        [Route("api/v1/product/find-by-id/{code}")]
 
-        public async Task<ActionResult<ProductDTO>> FindById(long id)
+        public async Task<ActionResult<ProductDTO>> FindById(string code)
         {
             try
             {
-                var product = await _repository.FindById(id);
+                var product = await _repository.FindById(code);
                 if (product == null) 
                     return Ok(new ResultViewModel
                     {

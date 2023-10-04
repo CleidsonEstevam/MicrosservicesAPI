@@ -29,6 +29,12 @@ builder.Services.AddDbContext<MySqlCartContext>(options => options.
                 new Version(8, 0, 5))));
 
 builder.Services.AddScoped<ICartRepository, CartRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+builder.Services.AddHttpClient();
+
+builder.Services.AddHttpClient<IProductRepository, ProductRepository>(s => s.BaseAddress =
+               new Uri("https://localhost:7154"));
 
 var app = builder.Build();
 

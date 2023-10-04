@@ -10,6 +10,8 @@ namespace ServiceWeb.CartAPI.Config
         {
             var mappingConfig = new MapperConfiguration(config => {
                 config.CreateMap<CartDTO, Cart>().ReverseMap();
+                config.CreateMap<CartHeaderDTO, CartHeader>().ReverseMap();
+                config.CreateMap<CartItemDTO, CartItem>().ReverseMap();
             });
             return mappingConfig;
         }

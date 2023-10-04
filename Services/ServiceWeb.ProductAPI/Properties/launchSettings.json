@@ -1,15 +1,16 @@
-﻿{
+﻿
+{
   "$schema": "https://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:34202",
-      "sslPort": 44350
+      "applicationUrl": "http://localhost:29017",
+      "sslPort": 44319
     }
   },
   "profiles": {
-    "ServiceWeb.ProductAPI": {
+    "ServuceWeb.CartAPI": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
@@ -29,3 +30,4 @@
     }
   }
 }
+
