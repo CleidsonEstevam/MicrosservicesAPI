@@ -148,10 +148,10 @@ namespace ServiceWeb.ProductAPI.Controllers
             {
                 var product = await _repository.FindById(code);
                 if (product == null) 
-                    return Ok(new ResultViewModel
+                    return NotFound(new ResultViewModel
                     {
                         Message = "ID informado não pertence a nenhum Produto.",
-                        Success = true,
+                        Success = false,
                         Data = product
                     });
 

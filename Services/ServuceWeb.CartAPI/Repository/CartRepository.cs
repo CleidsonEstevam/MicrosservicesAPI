@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using ServiceWeb.CartAPI.DTO;
+using ServiceWeb.CartAPI.Model.Entities;
 using ServiceWeb.CartAPI.Repository.Interface;
 using ServuceWeb.CartAPI.Model.Context;
 
@@ -22,16 +24,51 @@ namespace ServiceWeb.CartAPI.Repository
         {
             try
             {
+                //Map DTO/MODEL
+                Cart cart = _mapper.Map<Cart>(dto);
+
+                //CHECK HEADER
+                var cartHeader = await _context.CartHeaders.AsNoTracking().FirstOrDefaultAsync(c => c.UserId == cart.CartHeader.UserId);
+
+
+                //HEADER NÃO EXISTE (INSERE)
+                if (cartHeader == null)
+                {
+                    _context.CartHeaders.Add(cart.CartHeader);
+                    await _context.SaveChangesAsync();
+                    //salvar detalhes do cabeçalho
+                    cart.CartItems.FirstOrDefault().CartHeaderId = cart.CartHeader.Id;
+                    _context.CartItems.Add(cart.CartItems.FirstOrDefault());
+                    await _context.SaveChangesAsync();
+                }
+                else 
+                {
+                    //HEADER EXISTE (ALTERA)
+                    var cartDatail = await _context.CartItems.AsNoTracking().FirstOrDefaultAsync
+                        (c => c.ProductCode == cart.CartItems.FirstOrDefault().ProductCode && c.CartHeaderId == cartHeader.Id);
+
+                    if (cartDatail == null)
+                    {
+                        cart.CartItems.FirstOrDefault().CartHeaderId = cartHeader.Id;
+                        _context.CartItems.Add(cart.CartItems.FirstOrDefault());
+                        await _context.SaveChangesAsync();
+                    }
+                    else 
+                    {
+                        cartDatail.Quantity += cart.CartItems.FirstOrDefault().Quantity;
+                        _context.CartItems.Update(cartDatail);
+                        await _context.SaveChangesAsync();
+                    }
+
+                }
+
+                return _mapper.Map<CartDTO>(cart);
 
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-
-
-            return null;
         }
     }
 }
