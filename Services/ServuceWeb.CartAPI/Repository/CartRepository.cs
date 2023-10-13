@@ -70,5 +70,27 @@ namespace ServiceWeb.CartAPI.Repository
                 throw ex;
             }
         }
+
+        public async Task<CartDTO> FindCartByUserId(string userId)
+        {
+            try
+            {
+                Cart cart = new()
+                {
+                    CartHeader = await _context.CartHeaders
+                  .FirstOrDefaultAsync(c => c.UserId == userId) ?? new CartHeader(),
+                };
+                cart.CartItems = _context.CartItems.Where(c => c.CartHeaderId == cart.CartHeader.Id);
+
+                return _mapper.Map<CartDTO>(cart);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex; 
+            }
+          
+        }
     }
 }
