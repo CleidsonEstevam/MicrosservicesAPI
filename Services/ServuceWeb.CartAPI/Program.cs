@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using ServiceWeb.CartAPI.Config;
+using ServiceWeb.CartAPI.RabbitMQSender;
 using ServiceWeb.CartAPI.Repository;
 using ServiceWeb.CartAPI.Repository.Interface;
 using ServuceWeb.CartAPI.Model.Context;
@@ -30,6 +31,7 @@ builder.Services.AddDbContext<MySqlCartContext>(options => options.
 
 builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddSingleton<IRabbitMQMessageSender, RabbitMQMessageSender>();
 
 builder.Services.AddHttpClient();
 

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ServiceWeb.CartAPI.DTO;
+using ServiceWeb.CartAPI.DTO.Messages;
+using ServiceWeb.CartAPI.RabbitMQSender;
 using ServiceWeb.CartAPI.Repository.Interface;
 using ServiceWeb.CartAPI.ViewModels;
 
@@ -10,11 +12,13 @@ namespace ServiceWeb.CartAPI.Controllers
     {
         private ICartRepository _cartRepository;
         private IProductRepository _productRepository;
+        private IRabbitMQMessageSender _rabbitMQMessageSender;
 
-        public CartController(ICartRepository repository, IProductRepository productRepository)
+        public CartController(ICartRepository repository, IProductRepository productRepository, IRabbitMQMessageSender rabbitMQMessageSender)
         {
             _cartRepository = repository;
             _productRepository = productRepository;
+            _rabbitMQMessageSender = rabbitMQMessageSender;
         }
 
         [HttpPost]
@@ -157,6 +161,38 @@ namespace ServiceWeb.CartAPI.Controllers
                 Message = "Erro so excluir carrinho.",
                 Success = false,
                 Data = false
+            });
+        }
+
+        [HttpPost]
+        [Route("api/v1/cart/checkout")]
+        public async Task<ActionResult<CheckoutHeaderDTO>> Checkout(CheckoutHeaderDTO dto)
+        {
+            var cart = await _cartRepository.FindCartByUserId(dto.UserId);
+
+            if (cart == null) 
+            {
+                return NotFound(new ResultViewModel
+                {
+                    Message = "Nenhum carrinho encontrado.",
+                    Success = false,
+                    Data = false
+                }); 
+            }
+
+            dto.CartItems = cart.CartItems;
+            dto.DateTime = DateTime.Now;
+
+            //RabbitMQ
+            _rabbitMQMessageSender.SendMessage(dto, "checkoutqueue");
+
+
+
+            return Ok(new ResultViewModel
+            {
+                Message = "Erro so excluir carrinho.",
+                Success = false,
+                Data = dto
             });
         }
 

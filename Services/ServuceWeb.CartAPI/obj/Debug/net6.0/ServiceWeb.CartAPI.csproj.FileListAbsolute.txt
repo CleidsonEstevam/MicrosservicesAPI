@@ -117,3 +117,7 @@ C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\ob
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\obj\Debug\net6.0\ServiceWeb.CartAPI.pdb
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\obj\Debug\net6.0\ServiceWeb.CartAPI.genruntimeconfig.cache
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\obj\Debug\net6.0\ref\ServiceWeb.CartAPI.dll
+C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\RabbitMQ.Client.dll
+C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\System.Threading.Channels.dll
+C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\Service.MessageBus.dll
+C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\Service.MessageBus.pdb

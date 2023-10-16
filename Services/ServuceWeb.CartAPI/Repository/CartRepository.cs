@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ServiceWeb.CartAPI.DTO;
+using ServiceWeb.CartAPI.DTO.Messages;
 using ServiceWeb.CartAPI.Model.Entities;
 using ServiceWeb.CartAPI.Repository.Interface;
 using ServuceWeb.CartAPI.Model.Context;
@@ -137,6 +139,11 @@ namespace ServiceWeb.CartAPI.Repository
             }
 
             return false;
+        }
+
+        public Task<ActionResult<CheckoutHeaderDTO>> Checkout(CheckoutHeaderDTO dto)
+        {
+            throw new NotImplementedException();
         }
     }
 }
