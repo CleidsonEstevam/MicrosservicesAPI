@@ -92,5 +92,51 @@ namespace ServiceWeb.CartAPI.Repository
             }
           
         }
+
+        public async Task<bool> RemoveCart(int cartItemsId)
+        {
+            try
+            {
+                CartItem cartItem = await _context.CartItems.FirstOrDefaultAsync(c => c.Id == cartItemsId);
+
+                _context.CartItems.Remove(cartItem);
+
+                await _context.SaveChangesAsync();
+
+                int countItems = _context.CartItems.Where(c => c.CartHeaderId == cartItem.CartHeaderId).Count();
+
+                if (countItems <= 0)
+                {
+                    var removeCartHeader = await _context.CartHeaders.FirstOrDefaultAsync(h => h.Id == cartItem.CartHeaderId);
+                    _context.CartHeaders.Remove(removeCartHeader);
+                    await _context.SaveChangesAsync();
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return false;
+        }
+
+        public async Task<bool> ClearCart(string userId)
+        {
+            CartHeader cartHeader = await _context.CartHeaders.FirstOrDefaultAsync(h => h.UserId == userId);
+
+            if (cartHeader != null)
+            {
+                _context.CartItems.RemoveRange(_context.CartItems.Where(c => c.CartHeaderId == cartHeader.Id));
+                await _context.SaveChangesAsync();
+
+                _context.CartHeaders.Remove(cartHeader);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+        }
     }
 }

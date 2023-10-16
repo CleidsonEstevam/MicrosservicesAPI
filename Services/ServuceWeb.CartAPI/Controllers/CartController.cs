@@ -2,7 +2,6 @@
 using ServiceWeb.CartAPI.DTO;
 using ServiceWeb.CartAPI.Repository.Interface;
 using ServiceWeb.CartAPI.ViewModels;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace ServiceWeb.CartAPI.Controllers
 {
@@ -115,5 +114,51 @@ namespace ServiceWeb.CartAPI.Controllers
 
            
         }
+        [HttpDelete]
+        [Route("api/v1/cart/remove-product-cart")]
+        public async Task<ActionResult<CartDTO>> RemoveProductCart(int id)
+        {
+            var status = await _cartRepository.RemoveCart(id);
+            if (status)
+            {
+                return Ok(new ResultViewModel
+                {
+                    Message = "Produto removido.",
+                    Success = true,
+                    Data = true
+                }); ;
+            };
+
+            return Ok(new ResultViewModel
+            {
+                Message = "Erro remover produto.",
+                Success = false,
+                Data = false
+            });
+        }
+
+        [HttpDelete]
+        [Route("api/v1/cart/clear-all-cart")]
+        public async Task<ActionResult<CartDTO>> ClearAllCart(string userId)
+        {
+            var status = await _cartRepository.ClearCart(userId);
+            if (status)
+            {
+                return Ok(new ResultViewModel
+                {
+                    Message = "Carrinho excluído.",
+                    Success = true,
+                    Data = true
+                }); ;
+            };
+
+            return Ok(new ResultViewModel
+            {
+                Message = "Erro so excluir carrinho.",
+                Success = false,
+                Data = false
+            });
+        }
+
     }
 }
