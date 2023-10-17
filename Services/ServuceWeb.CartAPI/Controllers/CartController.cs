@@ -181,17 +181,15 @@ namespace ServiceWeb.CartAPI.Controllers
             }
 
             dto.CartItems = cart.CartItems;
-            dto.DateTime = DateTime.Now;
+            dto.DateOrder = DateTime.Now;
 
             //RabbitMQ
             _rabbitMQMessageSender.SendMessage(dto, "checkoutqueue");
 
-
-
             return Ok(new ResultViewModel
             {
-                Message = "Erro so excluir carrinho.",
-                Success = false,
+                Message = "Pedido finalizado.",
+                Success = true,
                 Data = dto
             });
         }

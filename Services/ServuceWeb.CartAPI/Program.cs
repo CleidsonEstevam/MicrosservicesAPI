@@ -25,7 +25,7 @@ builder.Services.AddSwaggerGen();
 var connection = builder.Configuration["MySQlConnection:MySQlConnectionString"];
 
 builder.Services.AddDbContext<MySqlCartContext>(options => options.
-    UseMySql("Server=localhost;DataBase=service_cart_api;Uid=root;Pwd=admin",
+    UseMySql(connection,
             new MySqlServerVersion(
                 new Version(8, 0, 5))));
 

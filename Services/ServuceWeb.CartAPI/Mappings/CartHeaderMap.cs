@@ -9,12 +9,8 @@ namespace ServiceWeb.CartAPI.Mappings
         public void Configure(EntityTypeBuilder<CartHeader> builder)
         {
             builder.HasKey(ch => ch.Id);
-            builder.Property(ch => ch.UserId).IsRequired();
 
-            //// Configuração de relacionamento com CartItem
-            //builder.HasMany(ch => ch.CartItems)
-            //    .WithOne(ci => ci.CartHeader)
-            //    .HasForeignKey(ci => ci.CartHeaderId);
+            builder.Property(ch => ch.UserId).IsRequired();
 
             builder.Property(x => x.CouponCode)
                 .IsRequired()

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "P97008n9WD9Sm05aH6rcv3e6WdEV6JAFzM/HnFEBDds=",
+  "Source": "ServiceWeb.OrderAPI",
+  "BasePath": "_content/ServiceWeb.OrderAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
