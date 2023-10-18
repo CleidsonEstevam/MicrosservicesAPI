@@ -88,6 +88,7 @@ C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bi
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\MySqlConnector.dll
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.Design.dll
+C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\RabbitMQ.Client.dll
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Annotations.dll
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -95,7 +96,10 @@ C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bi
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\System.CodeDom.dll
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\System.Threading.Channels.dll
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\Service.MessageBus.dll
+C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\Service.MessageBus.pdb
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\obj\Debug\net6.0\ServiceWeb.CartAPI.csproj.AssemblyReference.cache
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\obj\Debug\net6.0\ServiceWeb.CartAPI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\obj\Debug\net6.0\ServiceWeb.CartAPI.AssemblyInfoInputs.cache
@@ -117,7 +121,3 @@ C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\ob
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\obj\Debug\net6.0\ServiceWeb.CartAPI.pdb
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\obj\Debug\net6.0\ServiceWeb.CartAPI.genruntimeconfig.cache
 C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\obj\Debug\net6.0\ref\ServiceWeb.CartAPI.dll
-C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\RabbitMQ.Client.dll
-C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\System.Threading.Channels.dll
-C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\Service.MessageBus.dll
-C:\Users\cleidson.silva\Desktop\MicrosservicesAPI\Services\ServuceWeb.CartAPI\bin\Debug\net6.0\Service.MessageBus.pdb

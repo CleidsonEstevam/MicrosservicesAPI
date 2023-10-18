@@ -11,12 +11,6 @@ namespace ServiceWeb.CartAPI.Mappings
             builder.HasKey(ch => ch.Id);
 
             builder.Property(ch => ch.UserId).IsRequired();
-
-            builder.Property(x => x.CouponCode)
-                .IsRequired()
-                .HasMaxLength(1000)
-                .HasColumnName("coupon_code")
-                .HasColumnType("VARCHAR(1000)");
         }
     }
 }

@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using ServiceWeb.CartAPI.Config;
 using ServiceWeb.CartAPI.RabbitMQSender;
 using ServiceWeb.CartAPI.Repository;
@@ -19,8 +20,18 @@ IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 #endregion
-
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "MicrosservicesAPI", Version = "v1" });
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = @"Enter 'Bearer' [space] and your token!",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+});
 
 var connection = builder.Configuration["MySQlConnection:MySQlConnectionString"];
 
@@ -40,8 +51,6 @@ builder.Services.AddHttpClient<IProductRepository, ProductRepository>(s => s.Bas
 
 var app = builder.Build();
 
-
-// Configure the HTTP request pipeline.
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

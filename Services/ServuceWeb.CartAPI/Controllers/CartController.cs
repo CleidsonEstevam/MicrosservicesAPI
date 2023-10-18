@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using ServiceWeb.CartAPI.DTO;
 using ServiceWeb.CartAPI.DTO.Messages;
 using ServiceWeb.CartAPI.RabbitMQSender;
@@ -13,18 +14,23 @@ namespace ServiceWeb.CartAPI.Controllers
         private ICartRepository _cartRepository;
         private IProductRepository _productRepository;
         private IRabbitMQMessageSender _rabbitMQMessageSender;
+        public readonly IMapper _mapper;
 
-        public CartController(ICartRepository repository, IProductRepository productRepository, IRabbitMQMessageSender rabbitMQMessageSender)
+        public CartController(ICartRepository repository, IProductRepository productRepository, 
+            IRabbitMQMessageSender rabbitMQMessageSender, IMapper mapper)
         {
             _cartRepository = repository;
             _productRepository = productRepository;
             _rabbitMQMessageSender = rabbitMQMessageSender;
+             _mapper = mapper;
         }
 
         [HttpPost]
         [Route("api/v1/cart/add-cart")]
-        public async Task<ActionResult<CartDTO>> AddCart(CartDTO dto)
+        public async Task<ActionResult<CartDTO>> AddCart(CartViewModel model)
         {
+
+            var dto = _mapper.Map<CartDTO>(model);
 
             var product = await _productRepository.IsProductCodeValid(dto.CartItems.FirstOrDefault().ProductCode);
             
@@ -59,8 +65,9 @@ namespace ServiceWeb.CartAPI.Controllers
 
         [HttpPut]
         [Route("api/v1/cart/update-cart")]
-        public async Task<ActionResult<CartDTO>> UpdateCart(CartDTO dto)
+        public async Task<ActionResult<CartDTO>> UpdateCart(CartViewModel model)
         {
+            var dto = _mapper.Map<CartDTO>(model);
 
             var product = await _productRepository.IsProductCodeValid(dto.CartItems.FirstOrDefault().ProductCode);
 
@@ -166,8 +173,10 @@ namespace ServiceWeb.CartAPI.Controllers
 
         [HttpPost]
         [Route("api/v1/cart/checkout")]
-        public async Task<ActionResult<CheckoutHeaderDTO>> Checkout(CheckoutHeaderDTO dto)
+        public async Task<ActionResult<CheckoutHeaderDTO>> Checkout(CheckoutHeaderViewModel model)
         {
+            var dto = _mapper.Map<CheckoutHeaderDTO>(model);
+
             var cart = await _cartRepository.FindCartByUserId(dto.UserId);
 
             if (cart == null) 

@@ -25,7 +25,6 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 #endregion
 
 #region "Swagger"
-builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerGen(c =>
      {
          c.SwaggerDoc("v1", new OpenApiInfo { Title = "MicrosservicesAPI", Version = "v1" });

@@ -39,7 +39,7 @@ namespace ServiceWeb.CartAPI.Repository
                     _context.CartHeaders.Add(cart.CartHeader);
                     await _context.SaveChangesAsync();
                     //salvar detalhes do cabeçalho
-                    cart.CartItems.FirstOrDefault().CartHeaderId = cart.CartHeader.Id;
+                    cart.ChangeCartHeaderId(cart.CartHeader.Id);
                     _context.CartItems.Add(cart.CartItems.FirstOrDefault());
                     await _context.SaveChangesAsync();
                 }
@@ -51,7 +51,7 @@ namespace ServiceWeb.CartAPI.Repository
 
                     if (cartDatail == null)
                     {
-                        cart.CartItems.FirstOrDefault().CartHeaderId = cartHeader.Id;
+                        cart.ChangeCartHeaderId(cart.CartHeader.Id);
                         _context.CartItems.Add(cart.CartItems.FirstOrDefault());
                         await _context.SaveChangesAsync();
                     }
@@ -77,12 +77,14 @@ namespace ServiceWeb.CartAPI.Repository
         {
             try
             {
-                Cart cart = new()
-                {
-                    CartHeader = await _context.CartHeaders
-                  .FirstOrDefaultAsync(c => c.UserId == userId) ?? new CartHeader(),
-                };
-                cart.CartItems = _context.CartItems.Where(c => c.CartHeaderId == cart.CartHeader.Id);
+                Cart cart = new();
+
+                CartHeader cartHeader = await _context.CartHeaders
+               .FirstOrDefaultAsync(c => c.UserId == userId) ?? new CartHeader();
+
+                cart.ChangeCartHeader(cartHeader);
+
+                CartItem cartItem =  _context.CartItems.FirstOrDefault(c => c.CartHeaderId == cartHeader.Id);
 
                 return _mapper.Map<CartDTO>(cart);
 
