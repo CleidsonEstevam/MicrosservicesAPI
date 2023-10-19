@@ -27,10 +27,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="DTO\Messages\" />
-	  <Folder Include="MessageConsumer\" />
 	  <Folder Include="ConfigureMap\" />
-	  <Folder Include="Repository\" />
 	  <Folder Include="RabbitMQSender\" />
 	</ItemGroup>
 

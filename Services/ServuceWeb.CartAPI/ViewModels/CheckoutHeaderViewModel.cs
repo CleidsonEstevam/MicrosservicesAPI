@@ -1,5 +1,5 @@
-﻿using ServiceWeb.CartAPI.DTO;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace ServiceWeb.CartAPI.ViewModels
 {
@@ -24,8 +24,8 @@ namespace ServiceWeb.CartAPI.ViewModels
         public DateTime DateOrder { get; set; }
 
         [Required(ErrorMessage = "O numero do cartão não pode ser nulo.")]
-        [MinLength(3, ErrorMessage = "O numero do cartão deve ter no mínimo 14 caracteres.")]
-        [MaxLength(50, ErrorMessage = "O numero do cartão deve ter no máximo 16 caracteres.")]
+        [MinLength(14, ErrorMessage = "O numero do cartão deve ter no mínimo 14 caracteres.")]
+        [MaxLength(16, ErrorMessage = "O numero do cartão deve ter no máximo 16 caracteres.")]
         public string CardNumber { get; set; }
 
         [Required(ErrorMessage = "O CVV do cartão não pode ser nulo.")]
@@ -36,7 +36,7 @@ namespace ServiceWeb.CartAPI.ViewModels
         public string ExpiryMothYear { get; set; }
 
         public int CartTotalItens { get; set; }
-
+    
         public IEnumerable<CartItemViewModel> CartItems { get; set; }
     }
 }

@@ -173,7 +173,7 @@ namespace ServiceWeb.CartAPI.Controllers
 
         [HttpPost]
         [Route("api/v1/cart/checkout")]
-        public async Task<ActionResult<CheckoutHeaderDTO>> Checkout(CheckoutHeaderViewModel model)
+        public async Task<ActionResult<CheckoutHeaderDTO>> Checkout([FromBody] CheckoutHeaderViewModel model)
         {
             var dto = _mapper.Map<CheckoutHeaderDTO>(model);
 
@@ -201,6 +201,9 @@ namespace ServiceWeb.CartAPI.Controllers
                 Success = true,
                 Data = dto
             });
+
+
+            //APOS ORDEM DELETAR CARRINHO
         }
 
     }

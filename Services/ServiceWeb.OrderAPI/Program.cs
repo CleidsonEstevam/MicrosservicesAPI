@@ -1,7 +1,9 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using ServiceWeb.OrderAPI.Config;
+using ServiceWeb.OrderAPI.MessageConsumer;
 using ServiceWeb.OrderAPI.Model.Context;
+using ServiceWeb.OrderAPI.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,9 @@ builder.Services.AddDbContext<MySQLContext>(options => options.
     UseMySql(connection,
             new MySqlServerVersion(
                 new Version(8, 0, 5))));
+
+builder.Services.AddHostedService<RabbitMQCheckoutConsumer>();
+builder.Services.AddSingleton<OrderRepository>();
 
 var app = builder.Build();
 

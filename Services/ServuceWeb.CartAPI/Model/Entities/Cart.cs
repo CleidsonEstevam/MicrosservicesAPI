@@ -12,6 +12,11 @@
             CartHeader = cartHeader;
         }
 
+        public void ChangeCartItem(List<CartItem> cartItem)
+        {
+            CartItems = cartItem;
+        }
+
 
         public void ChangeUserId(string userId)
         {

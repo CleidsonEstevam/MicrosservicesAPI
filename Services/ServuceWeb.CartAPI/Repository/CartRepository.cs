@@ -51,7 +51,7 @@ namespace ServiceWeb.CartAPI.Repository
 
                     if (cartDatail == null)
                     {
-                        cart.ChangeCartHeaderId(cart.CartHeader.Id);
+                        cart.ChangeCartHeaderId(cartHeader.Id);
                         _context.CartItems.Add(cart.CartItems.FirstOrDefault());
                         await _context.SaveChangesAsync();
                     }
@@ -65,7 +65,6 @@ namespace ServiceWeb.CartAPI.Repository
                 }
 
                 return _mapper.Map<CartDTO>(cart);
-
             }
             catch (Exception ex)
             {
@@ -81,10 +80,12 @@ namespace ServiceWeb.CartAPI.Repository
 
                 CartHeader cartHeader = await _context.CartHeaders
                .FirstOrDefaultAsync(c => c.UserId == userId) ?? new CartHeader();
-
                 cart.ChangeCartHeader(cartHeader);
 
-                CartItem cartItem =  _context.CartItems.FirstOrDefault(c => c.CartHeaderId == cartHeader.Id);
+
+                List<CartItem> cartItem =  await _context.CartItems.Where(c => c.CartHeaderId == cartHeader.Id).ToListAsync();
+
+                cart.ChangeCartItem(cartItem);
 
                 return _mapper.Map<CartDTO>(cart);
 
@@ -123,7 +124,7 @@ namespace ServiceWeb.CartAPI.Repository
 
                 throw ex;
             }
-            return false;
+        
         }
 
         public async Task<bool> ClearCart(string userId)

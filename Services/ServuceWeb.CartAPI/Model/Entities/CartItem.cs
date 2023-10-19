@@ -6,7 +6,6 @@ namespace ServiceWeb.CartAPI.Model.Entities
     {
         //TODO: adicionar validates e privar o set
 
-
         public int Quantity { get;  set; }
         public long CartHeaderId { get;  set; }
         public string? ProductCode { get;  set; }
